@@ -9,13 +9,21 @@ import {
 } from "react-native";
 
 import { styles } from "./styles";
+import { Task } from "../types";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { Home } from "../types/navigation";
 
 const Tasks = () => {
+  const navigation = useNavigation<NavigationProp<Home>>();
+
   const [task, setTask] = useState<string>("");
-  const [tasks, setTasks] = useState<string[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   const add = () => {
-    setTasks((previous) => [...previous, task]);
+    setTasks((previous) => [
+      ...previous,
+      { title: task, createdAt: new Date() },
+    ]);
     setTask("");
   };
 
@@ -36,8 +44,11 @@ const Tasks = () => {
       <FlatList
         data={tasks}
         renderItem={({ item }) => (
-          <TouchableOpacity style={styles.todoItem}>
-            <Text style={styles.todoText}>{item}</Text>
+          <TouchableOpacity
+            style={styles.todoItem}
+            onPress={() => navigation.navigate("Details", {task: item})}
+          >
+            <Text style={styles.todoText}>{item.title}</Text>
           </TouchableOpacity>
         )}
       />
