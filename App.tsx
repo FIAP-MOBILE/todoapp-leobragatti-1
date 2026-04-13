@@ -1,4 +1,3 @@
-import { StatusBar } from "react-native";
 import Tasks from "./src/Components";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
