@@ -1,11 +1,12 @@
-import Tasks from "./src/Components";
+import Tasks from "./src/Screens/Tasks";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Home } from "./src/types/navigation";
-import Details from "./src/Components/Details";
+import { Tasks as TasksStack } from "./src/types/navigation";
+import Details from "./src/Screens/Details";
 
 export default function App() {
-  const Stack = createStackNavigator<Home>();
+  const Stack = createStackNavigator<TasksStack>();
+
   return (
     <NavigationContainer>
       <Stack.Navigator>

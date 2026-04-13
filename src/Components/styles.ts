@@ -1,15 +1,17 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f8f9fa",
-    padding: 20,
+  details: {
+    padding: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
   form: {
     flexDirection: "row",
     marginBottom: 10,
   },
+  title: { fontSize: 24, fontWeight: "bold", color: "black" },
+  description: { fontSize: 16, color: "#555" },
   // TextInput Style
   input: {
     flex: 1,
