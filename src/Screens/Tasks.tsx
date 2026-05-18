@@ -1,17 +1,15 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FlatList, View } from "react-native";
 
 import { Task } from "../types";
 import Form from "../Components/Form";
 import Item from "../Components/Item";
 import { styles } from "../styles";
+import { useAsyncStorage } from "@react-native-async-storage/async-storage";
+import { TodoContext } from "../Context/TodoContext";
 
 const Tasks = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
-
-  const add = (task: Task) => {
-    setTasks((previous) => [...previous, task]);
-  };
+  const { tasks, add } = useContext(TodoContext);
 
   return (
     <View style={styles.container}>
