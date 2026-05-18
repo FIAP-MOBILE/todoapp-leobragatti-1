@@ -1,11 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { FlatList, View } from "react-native";
 
-import { Task } from "../types";
 import Form from "../Components/Form";
 import Item from "../Components/Item";
 import { styles } from "../styles";
-import { useAsyncStorage } from "@react-native-async-storage/async-storage";
 import { TodoContext } from "../Context/TodoContext";
 
 const Tasks = () => {
